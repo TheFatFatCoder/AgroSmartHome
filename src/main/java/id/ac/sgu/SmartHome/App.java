@@ -1,13 +1,11 @@
 package id.ac.sgu.SmartHome;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
+import javafx.application.Application;
+import view.MainView;
+
+public class App {
+    public static void main( String[] args ) {
         System.out.println( "Hello World!" );
+        Application.launch(MainView.class, args);
     }
 }
