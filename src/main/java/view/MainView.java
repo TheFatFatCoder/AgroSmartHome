@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextBoundsType;
 import javafx.scene.shape.Circle;
 
+@SuppressWarnings({ "restriction", "unused" })
 public class MainView extends Application {
 	
 	@Override
