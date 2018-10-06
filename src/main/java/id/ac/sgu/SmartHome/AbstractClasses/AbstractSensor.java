@@ -5,11 +5,11 @@ import java.util.Observable;
 import Interfaces.Sensor;
 
 public abstract class AbstractSensor extends Observable implements Sensor{
-	protected float value;
+	protected Object value;
 	
-	public abstract void setValue(float x);
+	public abstract void setValue(Object x);
 	
-	public float getValue() {
+	public Object getValue() {
 		return this.value;
 	}
 }
