@@ -26,18 +26,18 @@ public class MainView extends Application {
 		
 		HBox actorsMonitor = new HBox();
 		actorsMonitor.setStyle("-fx-alignment: center; -fx-height: 860px; "
-				+ "-fx-background-color: #0f0; -fx-padding: 15px; -fx-spacing: 50px");
+				+ "-fx-background-color: #f5f5f5; -fx-padding: 15px; -fx-spacing: 50px");
 		
 		Text airconText = new Text("AC");
-		airconText.setStyle("-fx-font-size: 28pt");
-		Text airconStateText = new Text("-");
+		airconText.setStyle("-fx-font-size: 36pt");
+		Text airconStateText = new Text("ON");
 		airconStateText.setStyle("-fx-font-size: 18pt");
 		VBox airconBox = new VBox();
 		airconBox.setStyle("-fx-alignment: center");
 		airconBox.getChildren().addAll(airconText, airconStateText);
 		
 		Text blindsText = new Text("Blinds");
-		blindsText.setStyle("-fx-font-size: 28pt");
+		blindsText.setStyle("-fx-font-size: 36pt");
 		Text blindsStateText = new Text("-");
 		blindsStateText.setStyle("-fx-font-size: 18pt");
 		VBox blindsBox = new VBox();
@@ -45,7 +45,7 @@ public class MainView extends Application {
 		blindsBox.getChildren().addAll(blindsText, blindsStateText);
 		
 		Text alarmText = new Text("Alarm");
-		alarmText.setStyle("-fx-font-size: 28pt");
+		alarmText.setStyle("-fx-font-size: 36pt");
 		Text alarmStateText = new Text("-");
 		alarmStateText.setStyle("-fx-font-size: 18pt");
 		VBox alarmBox = new VBox();
@@ -53,7 +53,7 @@ public class MainView extends Application {
 		alarmBox.getChildren().addAll(alarmText, alarmStateText);
 		
 		Text lightsText = new Text("Lights");
-		lightsText.setStyle("-fx-font-size: 28pt");
+		lightsText.setStyle("-fx-font-size: 36pt");
 		Text lightsStateText = new Text("-");
 		lightsStateText.setStyle("-fx-font-size: 18pt");
 		VBox lightsBox = new VBox();
@@ -63,7 +63,7 @@ public class MainView extends Application {
 		actorsMonitor.getChildren().addAll(airconBox, blindsBox, alarmBox, lightsBox);
 		
 		HBox inputsBox = new HBox();
-		inputsBox.setStyle("-fx-background-color: #00f; -fx-padding: 5px; -fx-spacing: 40px; "
+		inputsBox.setStyle("-fx-background-color: #e1e1e1; -fx-padding: 5px; -fx-spacing: 40px; "
 				+ "-fx-alignment: center;");
 		
 		HBox tempBox = new HBox();
