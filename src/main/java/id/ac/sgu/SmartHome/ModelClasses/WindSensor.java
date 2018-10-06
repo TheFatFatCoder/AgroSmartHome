@@ -2,16 +2,15 @@ package id.ac.sgu.SmartHome.ModelClasses;
 
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 
-public class TempSensor extends AbstractSensor{
-
-	public TempSensor() {
-		super();
-	}
-	
+public class WindSensor extends AbstractSensor{
 	@Override
-	public void setValue(float val) {
+	public void setValue(float rpm) {
 		// TODO Auto-generated method stub
-		value = val;
+		value = rpm;
+		/*
+		 * 	here RPM has to be converted to knots or mph or kmph
+		 */
+		
 		setChanged();
 		notifyObservers(value);
 	}
