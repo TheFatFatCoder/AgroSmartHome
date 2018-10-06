@@ -9,10 +9,10 @@ public class TempSensor extends AbstractSensor{
 	}
 	
 	@Override
-	public void setValue(float val) {
+	public void setValue(Object val) {
 		// TODO Auto-generated method stub
-		value = val;
+		value = (float) val;
 		setChanged();
-		notifyObservers(value);
+		notifyObservers();
 	}
 }

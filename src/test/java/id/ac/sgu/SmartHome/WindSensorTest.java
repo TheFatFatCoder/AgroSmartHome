@@ -7,14 +7,13 @@ import org.junit.Test;
 import Interfaces.Sensor;
 import id.ac.sgu.SmartHome.ModelClasses.WindSensor;
 
-public class WindSensorTester {
+public class WindSensorTest {
 
 	@Test
 	public void test() {
 		Sensor sensor = new WindSensor();
-		sensor.setValue(1055); //1055 rpm
-		
-		assertEquals(1055, sensor.getValue(), 0.1);
+		sensor.setValue((float)1055.00); //1055 rpm
+		assertEquals(1055, (float) sensor.getValue(), 0.1);
 	}
 
 }
