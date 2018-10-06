@@ -1,4 +1,4 @@
-package Interfaces;
+package id.ac.sgu.SmartHome.Interfaces;
 
 public interface Sensor {
 	public Object getValue();

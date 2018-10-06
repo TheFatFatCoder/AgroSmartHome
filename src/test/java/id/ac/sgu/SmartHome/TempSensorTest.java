@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Interfaces.Sensor;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
+import id.ac.sgu.SmartHome.Interfaces.Sensor;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 
 public class TempSensorTest {

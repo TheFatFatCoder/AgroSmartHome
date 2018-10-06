@@ -2,7 +2,7 @@ package id.ac.sgu.SmartHome.AbstractClasses;
 
 import java.util.Observable;
 
-import Interfaces.Sensor;
+import id.ac.sgu.SmartHome.Interfaces.Sensor;
 
 public abstract class AbstractSensor extends Observable implements Sensor{
 	protected Object value;
