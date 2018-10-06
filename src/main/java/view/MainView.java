@@ -85,8 +85,8 @@ public class MainView extends Application {
 		HBox clockBox = new HBox();
 		clockBox.setStyle("-fx-alignment: center; -fx-spacing: 5px");
 		Label clockLabel = new Label("Clock");
-		TextField clockField = new TextField("15");
-		clockField.setStyle("-fx-pref-width: 40px;");
+		TextField clockField = new TextField("15:00:47");
+		clockField.setStyle("-fx-pref-width: 80px;");
 		clockBox.getChildren().addAll(clockLabel, clockField);
 		
 		inputsBox.getChildren().addAll(tempBox, windBox, clockBox);
