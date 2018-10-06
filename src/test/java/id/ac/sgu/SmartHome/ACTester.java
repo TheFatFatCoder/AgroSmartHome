@@ -16,8 +16,10 @@ public class ACTester {
 	public void test() {
 		AbstractSensor tempSensor = new TempSensor();
 		Actuator aircond = new Aircond(tempSensor);
-		
 		tempSensor.setValue(19.00); //Input double param
+		aircond.doAction(18, "temp");
+		
+		assertEquals(true, aircond.getState());
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
+import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Interfaces.Actuator;
 import id.ac.sgu.SmartHome.Interfaces.Sensor;
 
@@ -42,21 +43,22 @@ public class Aircond extends AbstractActuator implements Observer{
 		}
 	}
 
-	private boolean isArgTemp(Object arg) {
-		return arg.toString().equals("temp");
-	}
-
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		if	(isArgTemp(arg)) {
-			Sensor sense = (Sensor) o;
+			AbstractSensor sense = (AbstractSensor) o;
+			System.out.println(sense.getValue());
 			if	(Double.parseDouble(sense.getValue().toString()) < desiredTemperature) {
 				currState = false;
 			}else if (Double.parseDouble(sense.getValue().toString()) > desiredTemperature) {
 				currState = true;
 			}
 		}
+	}
+	
+	private boolean isArgTemp(Object arg) {
+		return arg.toString().equals("temp");
 	}
 
 	
