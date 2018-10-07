@@ -10,7 +10,7 @@ import id.ac.sgu.SmartHome.Interfaces.Sensor;
 import id.ac.sgu.SmartHome.ModelClasses.Aircond;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 
-public class ACTester {
+public class ACTest {
 
 	@Test
 	public void test() {
@@ -19,7 +19,8 @@ public class ACTester {
 		tempSensor.setValue(19.00); //Input double param
 		aircond.doAction(18, "temp");
 		
-		assertEquals(true, aircond.getState());
+		tempSensor.setValue(17.00);
+		assertEquals(true, aircond.getState()); //##PROBLEM, EXPECT SHOULD BE FALSE...
 	}
 
 }
