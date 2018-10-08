@@ -5,12 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import id.ac.sgu.SmartHome.Controller.DoorSecurityController;
+import id.ac.sgu.SmartHome.ModelClasses.Alarm;
+import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
 
 public class DoorSecurityTest {
 
 	@Test
 	public void test() {
-		//DoorSecurityController doorSecurity = new DoorSecurityController();
+		Alarm alarm = new Alarm();
+		DoorLock lock = new DoorLock();
 	}
 
 }

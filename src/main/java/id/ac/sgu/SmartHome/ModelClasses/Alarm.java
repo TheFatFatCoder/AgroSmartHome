@@ -23,22 +23,11 @@ import java.net.*;
 import id.ac.sgu.SmartHome.*;
 
 public class Alarm extends AbstractActuator{
-	public void playSound() {
-		try {
-			AudioClip clip = Applet.newAudioClip(new URL("file: /home/john/eclipse-workspace/AgroSmartHome/src/main/java/id/ac/sgu/SmartHome/Media/fire-truck-air-horn_daniel-simio.wav"));
-			clip.play();
-			TimeUnit.SECONDS.sleep(10);
-			System.out.println("played");
-		}catch (MalformedURLException murle) {
-			System.out.println(murle);
-		}catch (InterruptedException ie) {
-			ie.printStackTrace();
-		}
-	}
 
 	@Override
 	public void doAction(Object action, String arg) {
 		// TODO Auto-generated method stub
-		
+		this.currState = (boolean) action;
 	}
+	
 }
