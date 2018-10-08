@@ -25,8 +25,8 @@ public class AircondController extends AbstractController implements Observer {
 		this.aircond = aircond;
 		this.tempSensor = tempSensor;
 		this.clockSensor = clockSensor;
-		onTime = DateTimeConverter.convertTime("19:00");
-		onTime = DateTimeConverter.convertTime("05:00");
+		onTime = DateTimeConverter.convertTime("19:00:00");
+		onTime = DateTimeConverter.convertTime("05:00:00");
 		desiredTemp = 22;
 		this.aircond.setDesiredTemp(desiredTemp);
 		this.aircond.setTime(onTime, offTime);

@@ -85,7 +85,9 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timeWithinOnRange(Object param) {
-		return offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
+		boolean feckMe = offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
+		System.out.println(feckMe);
+		return feckMe;
 	}
 
 	private boolean timerHasBeenSet() {
