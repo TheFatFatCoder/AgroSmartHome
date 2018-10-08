@@ -1,6 +1,7 @@
 package id.ac.sgu.SmartHome.Controller;
 
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -8,6 +9,7 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.ModelClasses.Aircond;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
+import id.ac.sgu.SmartHome.ModelClasses.DateTimeConverter;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 
 public class AircondController extends AbstractController implements Observer {
@@ -15,16 +17,16 @@ public class AircondController extends AbstractController implements Observer {
 	private Aircond aircond;
 	private TempSensor tempSensor;
 	private ClockSensor clockSensor;
-	private Time onTime;
-	private Time offTime;
+	private LocalDateTime onTime;
+	private LocalDateTime offTime;
 	private int desiredTemp;
 	
 	public AircondController(Aircond aircond, TempSensor tempSensor, ClockSensor clockSensor) {
 		this.aircond = aircond;
 		this.tempSensor = tempSensor;
 		this.clockSensor = clockSensor;
-		onTime = new Time(19, 00, 00);
-		offTime = new Time(05, 00, 00);
+		onTime = DateTimeConverter.convertTime("19:00");
+		onTime = DateTimeConverter.convertTime("05:00");
 		desiredTemp = 22;
 		this.aircond.setDesiredTemp(desiredTemp);
 		this.aircond.setTime(onTime, offTime);
