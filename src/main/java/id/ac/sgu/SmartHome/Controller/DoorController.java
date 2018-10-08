@@ -9,7 +9,7 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
 
-public class DoorController extends AbstractController implements Observer{
+public class DoorController extends AbstractController{
 	private LocalDateTime startTime;
 	private LocalDateTime endTime;
 	private DoorLock lock;
@@ -20,14 +20,6 @@ public class DoorController extends AbstractController implements Observer{
 		this.endTime = end;
 	}
 
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		AbstractSensor sensor = (AbstractSensor) arg0;
-		if	(timeWithinOnRange(sensor.getValue()) && sensor.getType().equals("doorlock")) {
-			lock.setValue(true);
-		}
-	}
 	
 	public void openDoor() {
 		this.lock.openLock();

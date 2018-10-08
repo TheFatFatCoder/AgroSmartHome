@@ -8,10 +8,8 @@ import java.time.LocalTime;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 
 public class ClockSensor extends AbstractSensor{
-	private LocalDateTime timeNow;
 	
 	public ClockSensor() {
-		timeNow = LocalDateTime.now();
 		type = "clock";
 	}
 

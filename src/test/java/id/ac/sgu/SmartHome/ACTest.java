@@ -37,7 +37,7 @@ public class ACTest {
         assertEquals(false, aircond.getState());
         clockSensor.setValue("11:30:00");
         tempSensor.setValue(21.0);
-        assertEquals(false, aircond.getState());
+        assertEquals(true, aircond.getState());
         aircond.setDesiredTemp(50);
         assertEquals(false, aircond.getState());
 	}
