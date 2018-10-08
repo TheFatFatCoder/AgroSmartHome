@@ -113,7 +113,7 @@ public class MainView extends StackPane {
 			controller.changeWindObject(newVal);
 		});
 		clockField.textProperty().addListener((observable, oldVal, newVal) -> {
-			
+			controller.changeClockObject(newVal);
 		}); 
 	}
 	

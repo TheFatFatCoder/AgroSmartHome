@@ -16,7 +16,6 @@ public class BlindsController extends AbstractController implements Observer {
 	public BlindsController(Blinds blinds, WindSensor windSensor) {
 		this.blinds = blinds;
 		this.windSensor = windSensor;
-		this.setView(super.getView());
 	}
 
 	@Override
