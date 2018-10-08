@@ -35,6 +35,7 @@ public class Aircond extends AbstractActuator implements Observer{
 	public void setTime(LocalDateTime onTime, LocalDateTime offTime) {
 		if	(onTime.getHour()>12 && offTime.getHour()<12) {
 				this.offTime = offTime.plusDays(1);
+				System.out.println(this.offTime);
 				this.onTime = onTime;
 		}else {
 			this.onTime = onTime;
@@ -91,7 +92,7 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timerHasBeenSet() {
-		return onTime != null || offTime != null;
+		return onTime != null && offTime != null;
 	}
 
 	private boolean isTimeArg(String arg) {

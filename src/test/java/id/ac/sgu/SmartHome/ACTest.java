@@ -21,7 +21,7 @@ public class ACTest {
 
 	@Test
 	public void test() {
-		String tOn = "19:30:00"; String tOff = "05:00:00";
+		String tOn = "19:00:00"; String tOff = "05:00:00";
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
 		LocalDateTime timeOn = LocalTime.parse(tOn, dateTimeFormatter).atDate(LocalDate.now()); 
 		LocalDateTime timeOff = LocalTime.parse(tOff, dateTimeFormatter).atDate(LocalDate.now()); 

@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import id.ac.sgu.SmartHome.Controller.DoorController;
+
 public class DoorControlTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		DoorController dc = new DoorController();
 	}
 
 }
