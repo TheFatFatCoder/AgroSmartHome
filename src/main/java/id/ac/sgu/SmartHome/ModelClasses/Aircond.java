@@ -1,10 +1,12 @@
 package id.ac.sgu.SmartHome.ModelClasses;
 
-import java.sql.Time;
+import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.TimeUnit;
 
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
@@ -14,9 +16,9 @@ import id.ac.sgu.SmartHome.Interfaces.Sensor;
 public class Aircond extends AbstractActuator implements Observer{
 	private int desiredTemp;
 	private double lastTempPerceived;
-	private Time onTime;
-	private Time offTime;
-	private Time lastTimePerceived;
+	private LocalDateTime onTime;
+	private LocalDateTime offTime;
+	private LocalDateTime lastTimePerceived;
 	
 	public Aircond() {}
 	
@@ -25,14 +27,19 @@ public class Aircond extends AbstractActuator implements Observer{
 		setTime(null, null);
 	}
 	
-	public Aircond(int desiredTemp, Time onTime, Time offTime) {
+	public Aircond(int desiredTemp, LocalDateTime onTime, LocalDateTime offTime) {
 		setDesiredTemp(desiredTemp);
 		setTime(onTime, offTime);
 	}
 	
-	public void setTime(Time onTime, Time offTime) {
-		this.onTime = onTime;
-		this.offTime = offTime;
+	public void setTime(LocalDateTime onTime, LocalDateTime offTime) {
+		if	(onTime.getHour()>12 && offTime.getHour()<12) {
+				this.offTime = offTime.plusDays(1);
+				this.onTime = onTime;
+		}else {
+			this.onTime = onTime;
+			this.offTime = offTime;
+		}
 	}
 	
 	public void setDesiredTemp(int desiredTemp) {
@@ -78,7 +85,7 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timeWithinOnRange(Object param) {
-		return offTime.after((Time) param) && onTime.before((Time) param);
+		return offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
 	}
 
 	private boolean timerHasBeenSet() {
@@ -106,7 +113,7 @@ public class Aircond extends AbstractActuator implements Observer{
 		// TODO Auto-generated method stub
 		AbstractSensor sensor = (AbstractSensor) o;
 		if	(sensor.getType().equals("clock")) {
-			this.lastTimePerceived = (Time) sensor.getValue();
+			this.lastTimePerceived = (LocalDateTime) sensor.getValue();
 		}else if (sensor.getType().equals("temp")) {
 			this.lastTempPerceived = (double) sensor.getValue();
 		}

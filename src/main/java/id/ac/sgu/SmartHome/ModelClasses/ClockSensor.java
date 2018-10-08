@@ -1,13 +1,17 @@
 package id.ac.sgu.SmartHome.ModelClasses;
 
-import java.sql.Time;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 
 public class ClockSensor extends AbstractSensor{
-	private Time timeNow;
+	private LocalDateTime timeNow;
 	
 	public ClockSensor() {
+		timeNow = LocalDateTime.now();
 		type = "clock";
 	}
 
@@ -18,8 +22,8 @@ public class ClockSensor extends AbstractSensor{
 		String[] hourAndMinute = time.split(":");
 		int hour = Integer.parseInt(hourAndMinute[0]);
 		int minute = Integer.parseInt(hourAndMinute[1]);
-		int second = Integer.parseInt(hourAndMinute[2]);
-		timeNow = new Time(hour, minute, second);
+		//int second = Integer.parseInt(hourAndMinute[2]);
+		timeNow =  LocalTime.parse(hour+":"+minute).atDate(LocalDate.now());
 		value = timeNow;
 		setChanged();
 		notifyObservers();
