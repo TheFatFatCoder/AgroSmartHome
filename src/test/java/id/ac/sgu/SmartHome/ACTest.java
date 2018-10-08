@@ -15,12 +15,11 @@ public class ACTest {
 	@Test
 	public void test() {
 		AbstractSensor tempSensor = new TempSensor();
-		Actuator aircond = new Aircond(tempSensor);
+		Actuator aircond = new Aircond(18);
 		tempSensor.setValue(19.00); //Input double param
 		aircond.doAction(18, "temp");
 		
 		tempSensor.setValue(17.00);
 		assertEquals(true, aircond.getState()); //##PROBLEM, EXPECT SHOULD BE FALSE...
 	}
-
 }

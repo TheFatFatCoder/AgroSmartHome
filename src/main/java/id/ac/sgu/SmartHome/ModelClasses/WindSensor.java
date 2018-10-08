@@ -10,7 +10,6 @@ public class WindSensor extends AbstractSensor{
 		/*
 		 * 	here RPM has to be converted to knots or mph or kmph
 		 */
-		
 		setChanged();
 		notifyObservers(value);
 	}

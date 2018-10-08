@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class LightTest {
+public class AlarmTest {
 
 	@Test
 	public void test() {
-		//Actuator light = new Light();
+		//Actuator alarm = new Alarm();
+			
 	}
-
 }

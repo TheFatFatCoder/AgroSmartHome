@@ -8,7 +8,7 @@ public class WindowBlindTest {
 
 	@Test
 	public void test() {
-		Actuator windowBlind = new WindowBlind();
+		//Actuator windowBlind = new WindowBlind();
 	}
 
 }

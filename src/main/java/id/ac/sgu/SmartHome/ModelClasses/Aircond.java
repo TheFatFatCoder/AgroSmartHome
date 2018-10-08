@@ -11,55 +11,20 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Interfaces.Actuator;
 import id.ac.sgu.SmartHome.Interfaces.Sensor;
 
-public class Aircond extends AbstractActuator implements Observer{
-	private int desiredTemperature;
-	private Time timeON;
-	private Time timeOFF;
-	private List<Observable> sensors;
+public class Aircond extends AbstractActuator{
+	private int desiredTemp;
+	private AbstractSensor sourceSensor;
 	
-	public Aircond(Observable obs) {
-		desiredTemperature = 18;
-		initialiseSensor(obs);
-	}
-	
-	public Aircond(int desiredTemperature, Observable obs) {
-		this.desiredTemperature = desiredTemperature;
-		initialiseSensor(obs);
-	}
-	
-	public void initialiseSensor(Observable obs) {
-		sensors = new ArrayList<Observable>();
-		sensors.add(obs);
-	}
-	
-	@Override
-	public void doAction(Object object, String arg) {
-		// TODO Auto-generated method stub
-		if			(isArgTemp(arg)) {
-					desiredTemperature = (int) object;
-					update(sensors.get(0), arg);
-		}else if	(arg.equals("time")) {
-					
-		}
+	public Aircond(int desiredTemp) {
+		this.desiredTemp = desiredTemp;
+		sourceSensor.addObserver(sensor);
+		
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
+	public void doAction(Object action, String arg) {
 		// TODO Auto-generated method stub
-		if	(isArgTemp(arg)) {
-			AbstractSensor sense = (AbstractSensor) o;
-			System.out.println(sense.getValue());
-			if	(Double.parseDouble(sense.getValue().toString()) < desiredTemperature) {
-				currState = false;
-			}else if (Double.parseDouble(sense.getValue().toString()) > desiredTemperature) {
-				currState = true;
-			}
-		}
+		
 	}
-	
-	private boolean isArgTemp(Object arg) {
-		return arg.toString().equals("temp");
-	}
-
 	
 }
