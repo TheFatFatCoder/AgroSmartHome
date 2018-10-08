@@ -1,6 +1,7 @@
 package id.ac.sgu.SmartHome.Controller;
 
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Observable;
 import java.util.Observer;
@@ -27,7 +28,7 @@ public class LightsController extends AbstractController implements Observer{
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		int hour = ((Time) clockSensor.getValue()).getHours();
+		int hour = ((LocalDateTime) clockSensor.getValue()).getHour();
 		if(hour > onTimeStart && hour < onTimeEnd) {	// Turn Off Lights
 			lights.doAction(false, "");
 			view.turnOnLights(false);

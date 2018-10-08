@@ -60,7 +60,11 @@ public class Aircond extends AbstractActuator implements Observer{
 						this.currState = true;
 						setChanged();
 						notifyObservers(this.currState);
-					}else {
+					} else if(!timeWithinOnRange(lastTimePerceived) && !isLowerThanDesiredTemp(lastTempPerceived)) {
+						this.currState = true;
+						setChanged();
+						notifyObservers(this.currState);
+					} else {
 						this.currState = false;
 						setChanged();
 						notifyObservers(this.currState);
@@ -85,9 +89,8 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timeWithinOnRange(Object param) {
-		boolean feckMe = offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
-		System.out.println(feckMe);
-		return feckMe;
+		boolean status = offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
+		return status;
 	}
 
 	private boolean timerHasBeenSet() {
