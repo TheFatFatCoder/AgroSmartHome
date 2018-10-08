@@ -45,13 +45,16 @@ public class MainClass extends Application {
 		Aircond aircond = new Aircond();
 		TempSensor tempSensor = new TempSensor();
 		AircondController aircondController = new AircondController(aircond, tempSensor, clockSensor);
-		aircondController.getAircond().addObserver(aircondController);
+		// aircondController.getAircond().addObserver(aircondController);
 		controller.addController(aircondController);
 		controller.addSensor(tempSensor);
 		
 		Alarm alarm = new Alarm();
 		DoorLock doorLock = new DoorLock(alarm);
-		DoorController doorController = new DoorController(alarm, doorLock, clockSensor);
+		DoorController doorController = new DoorController(alarm, clockSensor, doorLock);
+		doorLock.addObserver(doorController);
+		controller.addController(doorController);
+		controller.addSensor(doorLock);
 		
 		Scene scene = new Scene(view, 960, 480);
         primaryStage.setTitle("Agro Smart Home");
