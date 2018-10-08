@@ -11,7 +11,7 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Interfaces.Actuator;
 import id.ac.sgu.SmartHome.Interfaces.Sensor;
 
-public class Aircond extends AbstractActuator{
+public class Aircond extends AbstractActuator {
 	private int desiredTemp;
 	private AbstractSensor sourceSensor;
 	
@@ -23,7 +23,6 @@ public class Aircond extends AbstractActuator{
 
 	@Override
 	public void doAction(Object action, String arg) {
-		// TODO Auto-generated method stub
 		
 	}
 	
