@@ -23,11 +23,31 @@ import java.net.*;
 import id.ac.sgu.SmartHome.*;
 
 public class Alarm extends AbstractActuator{
+	
+	public Alarm() {
+		setDisarm();
+	}
+	
+	private void setArm() {
+		this.currState = true;
+	}
+	
+	private void setDisarm() {
+		this.currState = false;
+	}
 
 	@Override
 	public void doAction(Object action, String arg) {
 		// TODO Auto-generated method stub
-		this.currState = (boolean) action;
+		if	(isTrue(action)) {
+			setArm();
+		}else {
+			setDisarm();
+		}
+	}
+
+	private boolean isTrue(Object action) {
+		return (boolean)action==true;
 	}
 	
 }

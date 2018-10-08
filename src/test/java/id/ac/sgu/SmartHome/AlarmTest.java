@@ -12,7 +12,7 @@ public class AlarmTest {
 	@Test
 	public void test() {
 		Alarm alarm = new Alarm();
-		alarm.doAction(true, "");
+		alarm.doAction(true, null);
 		assertEquals(true, alarm.getState());
 	}
 }
