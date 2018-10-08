@@ -29,21 +29,26 @@ import id.ac.sgu.SmartHome.*;
 public class Alarm extends AbstractActuator implements Observer {
 	private LocalDateTime startTime;
 	private LocalDateTime endTime;
-	private ClockSensor clockSensor;
+	private boolean isRing;
 	
 	public Alarm() {
 		setDisarm();
 	}
 	
-	public Alarm(LocalDateTime startTime, LocalDateTime endTime, ClockSensor clockSensor) {
+	public Alarm(LocalDateTime startTime, LocalDateTime endTime) {
 		setTimes(startTime, endTime);
-		this.clockSensor = clockSensor;
 		setDisarm();
 	}
 	
 	public void setTimes(LocalDateTime startTime, LocalDateTime endTime) {
-		this.startTime = startTime;
-		this.endTime = endTime;
+		if	(startTime.getHour()>12 && endTime.getHour()<12) {
+			this.endTime = endTime.plusDays(1);
+			this.startTime = startTime;
+			System.out.println("Start: "+this.startTime+"  End: "+this.endTime);
+		}else {
+			this.startTime = startTime;
+			this.endTime = endTime;
+		}
 	}
 	
 	private void setArm() {
@@ -54,6 +59,18 @@ public class Alarm extends AbstractActuator implements Observer {
 		this.currState = false;
 	}
 
+	public void setRing() {
+		this.isRing = true;
+	}
+	
+	public void unsetRing() {
+		this.isRing = false;
+	}
+	
+	public boolean getRingStatus() {
+		return this.isRing;
+	}
+	
 	@Override
 	public void doAction(Object action, String arg) {
 		if	(isTrue(action)) {
@@ -67,15 +84,17 @@ public class Alarm extends AbstractActuator implements Observer {
 	public void update(Observable o, Object arg) {
 		AbstractSensor sensor = (ClockSensor) o;
 		LocalDateTime sensorDt = (LocalDateTime)sensor.getValue();
-		if	(timeWithinOnRange(sensorDt) && sensor.getType().equals("doorlock")) {
+		if	(timeWithinOnRange(sensorDt)) {
 			doAction(true, null);
 		}else {
+			System.out.println("Masuk kesini");
 			doAction(false, null);
 		}
 	}
 	
 	private boolean timeWithinOnRange(Object param) {
-		return endTime.isBefore((LocalDateTime) param) && startTime.isAfter((LocalDateTime) param);
+		System.out.println(param);
+		return startTime.isBefore((LocalDateTime) param) && endTime.isAfter((LocalDateTime) param);
 	}
 	
 	private boolean isTrue(Object action) {

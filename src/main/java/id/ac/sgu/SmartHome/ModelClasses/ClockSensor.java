@@ -15,8 +15,7 @@ public class ClockSensor extends AbstractSensor{
 
 	@Override
 	public void setValue(Object x) {
-		String time = x.toString();
-		value = DateTimeConverter.convertTime(time);
+		value = DateTimeConverter.convertTime(x.toString());
 		setChanged();
 		notifyObservers();
 	}
