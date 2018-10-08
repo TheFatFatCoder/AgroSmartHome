@@ -1,4 +1,7 @@
+import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Controller.MainController;
+import id.ac.sgu.SmartHome.ModelClasses.Aircond;
+import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 import id.ac.sgu.SmartHome.View.MainView;
 import javafx.application.Application;
 import javafx.scene.Scene;

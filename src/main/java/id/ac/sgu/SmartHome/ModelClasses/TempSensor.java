@@ -13,6 +13,6 @@ public class TempSensor extends AbstractSensor{
 		// TODO Auto-generated method stub
 		value = (double) val;
 		setChanged();
-		notifyObservers();
+		notifyObservers(this.value);
 	}
 }
