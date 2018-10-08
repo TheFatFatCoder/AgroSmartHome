@@ -82,18 +82,26 @@ public class Alarm extends AbstractActuator implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		System.out.println("update yo");
 		AbstractSensor sensor = (ClockSensor) o;
 		LocalDateTime sensorDt = (LocalDateTime)sensor.getValue();
 		if	(timeWithinOnRange(sensorDt)) {
+			System.out.println("alarm armed yo");
 			doAction(true, null);
 		}else {
-			System.out.println("Masuk kesini: "+sensorDt);
+			//System.out.println("Masuk kesini: " + sensorDt);
 			doAction(false, null);
 		}
 	}
 	
 	private boolean timeWithinOnRange(Object param) {
 		try {
+			if(startTime == null) {
+				System.out.println("start null yo");
+			}
+			if(endTime == null) {
+				System.out.println("end null yo");
+			}
 			boolean status = startTime.isBefore((LocalDateTime) param) && endTime.isAfter((LocalDateTime) param);
 			return status;
 		} catch(Exception e) {}

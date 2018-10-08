@@ -35,39 +35,19 @@ public class DoorController extends AbstractController implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-//		AbstractSensor sensor = (AbstractSensor) arg0;
-//		if	(timeWithinOnRange(sensor.getValue()) && sensor.getType().equals("doorlock")) {
-//			lock.setValue(true);
-//		}
-//		if(alarm.getArmed()) {
-//			
-//		}
 		if((Boolean) alarm.getState()) {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Information Dialog");
-			alert.setHeaderText("Look, an Information Dialog");
-			alert.setContentText("I have a great message for you!");
-
+			alert.setTitle("Intruder Alert");
+			alert.setHeaderText("Alarm ringing");
+			alert.setContentText("RING RING ");
 			alert.showAndWait();
+			System.out.println("after this");
+		} else {
+			System.out.println("door opened");
 		}
-		
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Information Dialog");
-		alert.setHeaderText("Look, an Information Dialog");
-		alert.setContentText("I have a great message for you!");
-
-		alert.showAndWait();
 	}
 	
 	public void openDoor() {
 		this.lock.openLock();
 	}
-	
-//	private boolean timeWithinOnRange(Object param) {
-//		try {
-//			boolean status = offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
-//			return status;
-//		} catch(Exception e) {}
-//		return false;
-//	}
 }
