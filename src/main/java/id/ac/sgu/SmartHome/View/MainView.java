@@ -107,7 +107,7 @@ public class MainView extends StackPane {
 	
 	public void setListeners() {
 		tempField.textProperty().addListener((observable, oldVal, newVal) -> {
-			
+			controller.changeTempObject(newVal);
 		});
 		windField.textProperty().addListener((observable, oldValue, newVal) -> {
 			controller.changeWindObject(newVal);

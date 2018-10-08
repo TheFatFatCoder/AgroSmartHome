@@ -18,6 +18,8 @@ public class Aircond extends AbstractActuator implements Observer{
 	private Time offTime;
 	private Time lastTimePerceived;
 	
+	public Aircond() {}
+	
 	public Aircond(int desiredTemp) {
 		setDesiredTemp(desiredTemp);
 		setTime(null, null);
@@ -37,29 +39,40 @@ public class Aircond extends AbstractActuator implements Observer{
 		this.desiredTemp = desiredTemp;
 		doAction(lastTempPerceived, "temp");
 	}
-
+	
 	@Override
 	public void doAction(Object param, String arg) {
-		// TODO Auto-generated method stub
 		if	(isTempArg(arg)) {
 			if	(isLowerThanDesiredTemp(param)) {
 				this.currState = false;
+				setChanged();
+				notifyObservers(this.currState);
 			}else {
 				if	(timerHasBeenSet()) {
 					if	(timeWithinOnRange(lastTimePerceived)) {
 						this.currState = true;
+						setChanged();
+						notifyObservers(this.currState);
 					}else {
 						this.currState = false;
+						setChanged();
+						notifyObservers(this.currState);
 					}
 				}else{
 					this.currState = true;
+					setChanged();
+					notifyObservers(this.currState);
 				}
 			}
 		}else if (isTimeArg(arg)) {
 			if	(timeWithinOnRange(param)) {
 				this.currState = true;
+				setChanged();
+				notifyObservers(this.currState);
 			}else {
 				this.currState = false;
+				setChanged();
+				notifyObservers(this.currState);
 			}
 		}
 	}

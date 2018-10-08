@@ -1,8 +1,10 @@
 package id.ac.sgu.SmartHome.AbstractClasses;
 
+import java.util.Observable;
+
 import id.ac.sgu.SmartHome.Interfaces.Actuator;
 
-public abstract class AbstractActuator implements Actuator{
+public abstract class AbstractActuator extends Observable implements Actuator{
 	protected Object currState;
 
 	@Override

@@ -5,7 +5,6 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 public class WindSensor extends AbstractSensor{
 	@Override
 	public void setValue(Object rpm) {
-		System.out.println(rpm);
 		try {
 			value = Double.parseDouble((String) rpm);
 			/*
