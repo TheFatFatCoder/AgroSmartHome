@@ -14,7 +14,7 @@ import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
 public class ClockSensorTest {
 	@Test
 	public void test() {
-		Sensor clockSensor = new ClockSensor("10:30:00");
+		Sensor clockSensor = new ClockSensor();
 		System.out.println(clockSensor.getValue().toString());
 		assertEquals("10:30:00", clockSensor.getValue().toString());
 	}
