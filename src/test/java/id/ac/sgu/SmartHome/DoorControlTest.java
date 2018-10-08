@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import id.ac.sgu.SmartHome.Controller.DoorController;
 import id.ac.sgu.SmartHome.ModelClasses.Alarm;
-import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
+import id.ac.sgu.SmartHome.ModelClasses.DoorLockSensor;
 
 public class DoorControlTest {
 
 	@Test
 	public void test() {
-		DoorLock lock = new DoorLock(new Alarm());
+		DoorLockSensor lock = new DoorLockSensor(new Alarm());
 		lock.setValue(true);
 		assertEquals(true, true);
 	}

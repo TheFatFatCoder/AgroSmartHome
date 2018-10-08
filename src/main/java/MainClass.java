@@ -8,7 +8,7 @@ import id.ac.sgu.SmartHome.ModelClasses.Aircond;
 import id.ac.sgu.SmartHome.ModelClasses.Alarm;
 import id.ac.sgu.SmartHome.ModelClasses.Blinds;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
-import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
+import id.ac.sgu.SmartHome.ModelClasses.DoorLockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.Lights;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 import id.ac.sgu.SmartHome.ModelClasses.WindSensor;
@@ -50,7 +50,7 @@ public class MainClass extends Application {
 		controller.addSensor(tempSensor);
 		
 		Alarm alarm = new Alarm();
-		DoorLock doorLock = new DoorLock(alarm);
+		DoorLockSensor doorLock = new DoorLockSensor(alarm);
 		DoorController doorController = new DoorController(alarm, clockSensor, doorLock);
 		doorLock.addObserver(doorController);
 		controller.addController(doorController);

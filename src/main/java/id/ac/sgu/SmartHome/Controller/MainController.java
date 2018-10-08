@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
-import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
+import id.ac.sgu.SmartHome.ModelClasses.DoorLockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 import id.ac.sgu.SmartHome.ModelClasses.WindSensor;
 import id.ac.sgu.SmartHome.View.MainView;
@@ -55,7 +55,7 @@ public class MainController extends AbstractController {
 	
 	public void openDoor() {
 		for(AbstractSensor sensor : sensorList) {
-			if(sensor instanceof DoorLock) {
+			if(sensor instanceof DoorLockSensor) {
 				sensor.setValue(null);
 			}
 		}
