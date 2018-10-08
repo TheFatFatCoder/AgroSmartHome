@@ -6,6 +6,6 @@ public class Blinds extends AbstractActuator {
 
 	@Override
 	public void doAction(Object action, String arg) {
-		
+		currState = (Boolean) action;
 	}
 }

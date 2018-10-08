@@ -17,12 +17,14 @@ public class MainClass extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Blinds blinds = new Blinds();
-		WindSensor windSensor = new WindSensor();
-		BlindsController blindsController = new BlindsController(blinds);
 		MainController controller = new MainController();
 		MainView view = new MainView(controller);
 		controller.setView(view);
+		
+		Blinds blinds = new Blinds();
+		WindSensor windSensor = new WindSensor();
+		BlindsController blindsController = new BlindsController(blinds, windSensor);
+		windSensor.addObserver(blindsController);
 		controller.addController(blindsController);
 		controller.addSensor(windSensor);
 		
