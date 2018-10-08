@@ -11,5 +11,4 @@ public abstract class AbstractActuator implements Actuator{
 	public Object getState() {
 		return this.currState;
 	}
-
 }
