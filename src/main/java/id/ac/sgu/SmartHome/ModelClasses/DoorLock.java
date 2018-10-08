@@ -7,7 +7,7 @@ public class DoorLock extends AbstractSensor{
 	
 	public DoorLock(Alarm alarm) {
 		this.alarm = alarm;
-		
+		type="doorlock";
 	}
 	
 	private void armLock() {
