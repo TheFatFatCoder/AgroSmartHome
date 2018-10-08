@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
 import javax.sound.sampled.AudioInputStream;
@@ -22,7 +24,7 @@ import java.net.*;
 
 import id.ac.sgu.SmartHome.*;
 
-public class Alarm extends AbstractActuator{
+public class Alarm extends AbstractActuator implements Observer {
 	
 	public Alarm() {
 		setDisarm();
@@ -45,6 +47,11 @@ public class Alarm extends AbstractActuator{
 		}
 	}
 
+	@Override
+	public void update(Observable o, Object arg) {
+		
+	}
+	
 	private boolean isTrue(Object action) {
 		return (boolean)action==true;
 	}
