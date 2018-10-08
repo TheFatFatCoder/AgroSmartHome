@@ -11,13 +11,12 @@ import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.DateTimeConverter;
 
 public class AlarmTest {
-
 	@Test
 	public void test() {
 		AbstractSensor clock = new ClockSensor();
 		Alarm alarm = new Alarm(DateTimeConverter.convertTime("20:00:00"), DateTimeConverter.convertTime("05:00:00"));
 		clock.addObserver(alarm);
-		clock.setValue("01:00:00");
+		clock.setValue("23:00:00");
 		assertEquals(true, alarm.getState());
 	}
 }
