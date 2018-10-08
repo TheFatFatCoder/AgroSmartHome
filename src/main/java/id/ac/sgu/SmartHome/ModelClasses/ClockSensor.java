@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
+import id.ac.sgu.SmartHome.Util.DateTimeConverter;
 
 public class ClockSensor extends AbstractSensor{
 	

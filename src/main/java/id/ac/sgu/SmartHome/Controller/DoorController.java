@@ -12,8 +12,8 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.ModelClasses.Alarm;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
-import id.ac.sgu.SmartHome.ModelClasses.DateTimeConverter;
 import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
+import id.ac.sgu.SmartHome.Util.DateTimeConverter;
 
 public class DoorController extends AbstractController implements Observer{
 	

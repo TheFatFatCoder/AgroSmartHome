@@ -8,7 +8,7 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.ModelClasses.Alarm;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
-import id.ac.sgu.SmartHome.ModelClasses.DateTimeConverter;
+import id.ac.sgu.SmartHome.Util.DateTimeConverter;
 
 public class AlarmTest {
 	@Test

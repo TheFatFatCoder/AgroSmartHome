@@ -1,4 +1,4 @@
-package id.ac.sgu.SmartHome.ModelClasses;
+package id.ac.sgu.SmartHome.Util;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

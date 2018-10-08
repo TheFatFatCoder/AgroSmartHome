@@ -9,8 +9,8 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.ModelClasses.Aircond;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
-import id.ac.sgu.SmartHome.ModelClasses.DateTimeConverter;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
+import id.ac.sgu.SmartHome.Util.DateTimeConverter;
 
 public class AircondController extends AbstractController implements Observer {
 	
