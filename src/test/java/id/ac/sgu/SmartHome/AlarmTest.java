@@ -4,11 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
+import id.ac.sgu.SmartHome.ModelClasses.Alarm;
+
 public class AlarmTest {
 
 	@Test
 	public void test() {
-		//Actuator alarm = new Alarm();
-			
+		Alarm alarm = new Alarm();
+		alarm.playSound();
 	}
 }

@@ -18,18 +18,22 @@ public class Aircond extends AbstractActuator implements Observer{
 	private Time lastTimePerceived;
 	
 	public Aircond(int desiredTemp) {
-		this.desiredTemp = desiredTemp;
+		setDesiredTemp(desiredTemp);
 		setTime(null, null);
 	}
 	
 	public Aircond(int desiredTemp, Time onTime, Time offTime) {
-		this.desiredTemp = desiredTemp;
+		setDesiredTemp(desiredTemp);
 		setTime(onTime, offTime);
 	}
 	
 	public void setTime(Time onTime, Time offTime) {
 		this.onTime = onTime;
 		this.offTime = offTime;
+	}
+	
+	public void setDesiredTemp(int desiredTemp) {
+		this.desiredTemp = desiredTemp;
 	}
 
 	@Override

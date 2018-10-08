@@ -21,7 +21,6 @@ public class ACTest {
 		Time timeOff = new Time(10, 00, 00);
 		Aircond aircond = new Aircond(18, timeOn, timeOff);
 		AbstractSensor clockSensor = new ClockSensor(); AbstractSensor tempSensor = new TempSensor(); 
-		
         clockSensor.addObserver(aircond); tempSensor.addObserver(aircond); 
         clockSensor.setValue("9:30:00");
         tempSensor.setValue(20.0);
@@ -31,5 +30,6 @@ public class ACTest {
         clockSensor.setValue("11:30:00");
         tempSensor.setValue(21.0);
         assertEquals(false, aircond.getState());
+        aircond.setDesiredTemp(22);
 	}
 }
