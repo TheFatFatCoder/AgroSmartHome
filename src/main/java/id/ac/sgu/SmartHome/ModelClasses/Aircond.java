@@ -13,6 +13,7 @@ import id.ac.sgu.SmartHome.Interfaces.Sensor;
 
 public class Aircond extends AbstractActuator implements Observer{
 	private int desiredTemp;
+	private double lastTempPerceived;
 	private Time onTime;
 	private Time offTime;
 	private Time lastTimePerceived;
@@ -34,6 +35,7 @@ public class Aircond extends AbstractActuator implements Observer{
 	
 	public void setDesiredTemp(int desiredTemp) {
 		this.desiredTemp = desiredTemp;
+		doAction(lastTempPerceived, "temp");
 	}
 
 	@Override
@@ -92,6 +94,8 @@ public class Aircond extends AbstractActuator implements Observer{
 		AbstractSensor sensor = (AbstractSensor) o;
 		if	(sensor.getType().equals("clock")) {
 			this.lastTimePerceived = (Time) sensor.getValue();
+		}else if (sensor.getType().equals("temp")) {
+			this.lastTempPerceived = (double) sensor.getValue();
 		}
 		doAction(sensor.getValue(), sensor.getType());
 	}

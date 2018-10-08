@@ -15,6 +15,8 @@ public class DoorSecurityTest {
 		lock.setValue(true);
 		lock.openLock();
 		assertEquals(true, alarm.getState());
+		alarm.doAction(false, null);
+		assertEquals(false, alarm.getState());
 	}
 
 }
