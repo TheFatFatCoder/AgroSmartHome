@@ -117,7 +117,6 @@ public class MainView extends StackPane {
 			controller.changeClockObject(newVal);
 		});
 		openDoorButton.setOnAction(event -> {
-			System.out.println("button pressed");
 			controller.openDoor();
 		});
 	}

@@ -27,18 +27,16 @@ public class DoorLock extends AbstractSensor{
 	private boolean lockIsArmed() {
 		return (boolean) this.value == true;
 	}
+	
 	@Override
 	public void setValue(Object x) {
-		// TODO Auto-generated method stub
-		if	(isTrue(x)) {
-			armLock();
-		}else {
-			disarmLock();
-		}
+// 		TODO Auto-generated method stub
+//		if	(isTrue(x)) {
+//			armLock();
+//		}else {
+//			disarmLock();
+//		}
+		setChanged();
+		notifyObservers();
 	}
-
-	private boolean isTrue(Object x) {
-		return (boolean) x == true;
-	}
-
 }

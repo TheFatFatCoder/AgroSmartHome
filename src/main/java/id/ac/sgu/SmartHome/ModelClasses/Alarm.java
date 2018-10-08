@@ -93,8 +93,11 @@ public class Alarm extends AbstractActuator implements Observer {
 	}
 	
 	private boolean timeWithinOnRange(Object param) {
-		System.out.println(param);
-		return startTime.isBefore((LocalDateTime) param) && endTime.isAfter((LocalDateTime) param);
+		try {
+			boolean status = endTime.isBefore((LocalDateTime) param) && startTime.isAfter((LocalDateTime) param);
+			return status;
+		} catch(Exception e) {}
+		return false;
 	}
 	
 	private boolean isTrue(Object action) {
