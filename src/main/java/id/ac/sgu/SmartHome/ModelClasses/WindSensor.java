@@ -9,8 +9,6 @@ public class WindSensor extends AbstractSensor{
 			value = Double.parseDouble(rpm.toString());
 			setChanged();
 			notifyObservers(value);
-		} catch(NumberFormatException e) {
-			e.printStackTrace();
-		}
+		} catch(NumberFormatException e) {}
 	}
 }
