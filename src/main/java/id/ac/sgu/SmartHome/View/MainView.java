@@ -18,6 +18,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextBoundsType;
 import javafx.scene.shape.Circle;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 //@SuppressWarnings({ "restriction", "unused" })
 public class MainView extends StackPane {
 	
@@ -114,7 +117,20 @@ public class MainView extends StackPane {
 			controller.changeWindObject(newVal);
 		});
 		clockField.textProperty().addListener((observable, oldVal, newVal) -> {
-			controller.changeClockObject(newVal);
+			try {
+				String[] clock = newVal.split(":");
+				if	(Integer.parseInt(clock[0])>23 || Integer.parseInt(clock[1]) > 59 || Integer.parseInt(clock[2])>59) {
+					Alert alert = new Alert(AlertType.WARNING);
+					alert.setTitle("WARNING");
+					alert.setHeaderText("Time Incorrect Format");
+					alert.setContentText("Please enter time between 00:00:00 to 23:59:59");
+					clockField.setText("13:30:00");
+					alert.showAndWait();
+					
+				}else {
+					controller.changeClockObject(newVal);
+				}
+			}catch(ArrayIndexOutOfBoundsException aiobe) {};
 		});
 		openDoorButton.setOnAction(event -> {
 			controller.openDoor();

@@ -44,7 +44,6 @@ public class Alarm extends AbstractActuator implements Observer {
 		if	(startTime.getHour()>12 && endTime.getHour()<12) {
 			this.endTime = endTime.plusDays(1);
 			this.startTime = startTime;
-			System.out.println("Start: "+this.startTime+"  End: "+this.endTime);
 		}else {
 			this.startTime = startTime;
 			this.endTime = endTime;
@@ -82,14 +81,11 @@ public class Alarm extends AbstractActuator implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		System.out.println("update yo");
 		AbstractSensor sensor = (ClockSensor) o;
 		LocalDateTime sensorDt = (LocalDateTime)sensor.getValue();
 		if	(timeWithinOnRange(sensorDt)) {
-			System.out.println("alarm armed yo");
 			doAction(true, null);
 		}else {
-			//System.out.println("Masuk kesini: " + sensorDt);
 			doAction(false, null);
 		}
 	}
