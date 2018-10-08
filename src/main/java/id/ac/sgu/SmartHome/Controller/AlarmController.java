@@ -7,17 +7,17 @@ import java.util.Observer;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.ModelClasses.Alarm;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
-import id.ac.sgu.SmartHome.ModelClasses.DoorSensor;
+import id.ac.sgu.SmartHome.ModelClasses.DoorController;
 
 public class AlarmController extends AbstractController implements Observer {
 	
 	private Alarm alarm;
 	private ClockSensor clockSensor;
-	private DoorSensor doorSensor;
+	private DoorController doorSensor;
 	private int onTimeStart;
 	private int onTimeEnd;
 	
-	public AlarmController(Alarm alarm, DoorSensor doorSensor, ClockSensor clockSensor) {
+	public AlarmController(Alarm alarm, DoorController doorSensor, ClockSensor clockSensor) {
 		this.alarm = alarm;
 		this.doorSensor = doorSensor;
 		this.clockSensor = clockSensor;
