@@ -56,7 +56,7 @@ public class MainController extends AbstractController {
 	public void openDoor() {
 		for(AbstractSensor sensor : sensorList) {
 			if(sensor instanceof DoorLock) {
-				sensor.setValue(false);
+				sensor.setValue(null);
 			}
 		}
 	}

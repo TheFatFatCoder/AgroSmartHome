@@ -28,14 +28,16 @@ public class LightsController extends AbstractController implements Observer{
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		int hour = ((LocalDateTime) clockSensor.getValue()).getHour();
-		if(hour > onTimeStart && hour < onTimeEnd) {	// Turn Off Lights
-			lights.doAction(false, "");
-			view.turnOnLights(false);
-		} else {										// Turn On Lights
-			lights.doAction(true, "");
-			view.turnOnLights(true);
-		}
+		try {
+			int hour = ((LocalDateTime) clockSensor.getValue()).getHour();
+			if(hour > onTimeStart && hour < onTimeEnd) {	// Turn Off Lights
+				lights.doAction(false, "");
+				view.turnOnLights(false);
+			} else {										// Turn On Lights
+				lights.doAction(true, "");
+				view.turnOnLights(true);
+			}
+		} catch(NullPointerException e) {}
 	}
 
 	public int getOnTimeStart() {

@@ -90,8 +90,11 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timeWithinOnRange(Object param) {
-		boolean status = offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
-		return status;
+		try {
+			boolean status = offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
+			return status;
+		} catch(Exception e) {}
+		return false;
 	}
 
 	private boolean timerHasBeenSet() {

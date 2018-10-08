@@ -51,7 +51,7 @@ public class MainClass extends Application {
 		
 		Alarm alarm = new Alarm();
 		DoorLock doorLock = new DoorLock(alarm);
-		DoorController doorController = new DoorController(Alarm alarm, clockSensor, doorLock);
+		DoorController doorController = new DoorController(alarm, clockSensor, doorLock);
 		doorLock.addObserver(doorController);
 		controller.addController(doorController);
 		controller.addSensor(doorLock);
