@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
+import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 import id.ac.sgu.SmartHome.ModelClasses.WindSensor;
 import id.ac.sgu.SmartHome.View.MainView;
 
@@ -38,6 +39,14 @@ public class MainController extends AbstractController {
 	public void changeClockObject(String newVal) {
 		for(AbstractSensor sensor : sensorList) {
 			if(sensor instanceof ClockSensor) {
+				sensor.setValue(newVal);
+			}
+		}
+	}
+	
+	public void changeTempObject(String newVal) {
+		for(AbstractSensor sensor : sensorList) {
+			if(sensor instanceof TempSensor) {
 				sensor.setValue(newVal);
 			}
 		}

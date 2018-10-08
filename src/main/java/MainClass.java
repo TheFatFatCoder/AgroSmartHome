@@ -1,4 +1,5 @@
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
+import id.ac.sgu.SmartHome.Controller.AircondController;
 import id.ac.sgu.SmartHome.Controller.BlindsController;
 import id.ac.sgu.SmartHome.Controller.LightsController;
 import id.ac.sgu.SmartHome.Controller.MainController;
@@ -37,6 +38,13 @@ public class MainClass extends Application {
 		clockSensor.addObserver(lightsController);
 		controller.addController(lightsController);
 		controller.addSensor(clockSensor);
+		
+		Aircond aircond = new Aircond();
+		TempSensor tempSensor = new TempSensor();
+		AircondController aircondController = new AircondController(aircond, tempSensor, clockSensor);
+		aircondController.getAircond().addObserver(aircondController);
+		controller.addController(aircondController);
+		controller.addSensor(tempSensor);
 		
 		Scene scene = new Scene(view, 960, 480);
         primaryStage.setTitle("Agro Smart Home");

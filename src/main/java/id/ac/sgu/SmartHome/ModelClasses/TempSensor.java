@@ -11,9 +11,10 @@ public class TempSensor extends AbstractSensor{
 	
 	@Override
 	public void setValue(Object val) {
-		// TODO Auto-generated method stub
-		value = (double) val;
-		setChanged();
-		notifyObservers(this.value);
+		try {
+			value = Double.parseDouble((String) val);
+			setChanged();
+			notifyObservers(value);
+		} catch(NumberFormatException e) {}
 	}
 }
