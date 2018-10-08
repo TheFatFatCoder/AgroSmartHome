@@ -32,6 +32,7 @@ public class AircondController extends AbstractController implements Observer {
 		this.aircond.setTime(onTime, offTime);
 		tempSensor.addObserver(this.aircond);
 		clockSensor.addObserver(this.aircond);
+		this.aircond.addObserver(this);
 	}
 
 	@Override

@@ -1,11 +1,14 @@
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Controller.AircondController;
 import id.ac.sgu.SmartHome.Controller.BlindsController;
+import id.ac.sgu.SmartHome.Controller.DoorController;
 import id.ac.sgu.SmartHome.Controller.LightsController;
 import id.ac.sgu.SmartHome.Controller.MainController;
 import id.ac.sgu.SmartHome.ModelClasses.Aircond;
+import id.ac.sgu.SmartHome.ModelClasses.Alarm;
 import id.ac.sgu.SmartHome.ModelClasses.Blinds;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
+import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
 import id.ac.sgu.SmartHome.ModelClasses.Lights;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 import id.ac.sgu.SmartHome.ModelClasses.WindSensor;
@@ -42,9 +45,16 @@ public class MainClass extends Application {
 		Aircond aircond = new Aircond();
 		TempSensor tempSensor = new TempSensor();
 		AircondController aircondController = new AircondController(aircond, tempSensor, clockSensor);
-		aircondController.getAircond().addObserver(aircondController);
+		// aircondController.getAircond().addObserver(aircondController);
 		controller.addController(aircondController);
 		controller.addSensor(tempSensor);
+		
+		Alarm alarm = new Alarm();
+		DoorLock doorLock = new DoorLock(alarm);
+		DoorController doorController = new DoorController(alarm, clockSensor, doorLock);
+		doorLock.addObserver(doorController);
+		controller.addController(doorController);
+		controller.addSensor(doorLock);
 		
 		Scene scene = new Scene(view, 960, 480);
         primaryStage.setTitle("Agro Smart Home");

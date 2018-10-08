@@ -27,9 +27,14 @@ import java.net.*;
 import id.ac.sgu.SmartHome.*;
 
 public class Alarm extends AbstractActuator implements Observer {
-	private AbstractSensor sensor;
+	private LocalDateTime startTime;
+	private LocalDateTime endTime;
+	private ClockSensor clockSensor;
 	
-	public Alarm() {
+	public Alarm(LocalDateTime startTime, LocalDateTime endTime, ClockSensor clockSensor) {
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.clockSensor = clockSensor;
 		setDisarm();
 	}
 	
@@ -62,7 +67,7 @@ public class Alarm extends AbstractActuator implements Observer {
 	}
 	
 	private boolean timeWithinOnRange(Object param) {
-		return endTime.isAfter((LocalDateTime) param) && startTime.isBefore((LocalDateTime) param);
+		return endTime.isBefore((LocalDateTime) param) && startTime.isAfter((LocalDateTime) param);
 	}
 	
 	private boolean isTrue(Object action) {

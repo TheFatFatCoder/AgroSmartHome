@@ -7,26 +7,43 @@ import java.util.Observer;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
+import id.ac.sgu.SmartHome.ModelClasses.Alarm;
+import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
+import id.ac.sgu.SmartHome.ModelClasses.DateTimeConverter;
 import id.ac.sgu.SmartHome.ModelClasses.DoorLock;
 
-public class DoorController extends AbstractController{
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
-	private DoorLock lock;
+public class DoorController extends AbstractController implements Observer{
 	
-	public DoorController(DoorLock lock, AbstractSensor clockSensor ,LocalDateTime start, LocalDateTime end) {
+	private Alarm alarm;
+	private ClockSensor clockSensor;
+
+	private DoorLock lock;
+	private LocalDateTime onTime;
+	private LocalDateTime offTime;
+	
+	
+	public DoorController(ClockSensor clockSensor, DoorLock lock) {
+		this.onTime = DateTimeConverter.convertTime("19:00:00");
+		this.offTime = DateTimeConverter.convertTime("05:00:00");
+		this.clockSensor = clockSensor;
+		this.alarm = new Alarm(this.onTime, this.offTime, this.clockSensor);
 		this.lock = lock;
-		this.startTime = start;
-		this.endTime = end;
 	}
 
+	@Override
+	public void update(Observable arg0, Object arg1) {
+//		AbstractSensor sensor = (AbstractSensor) arg0;
+//		if	(timeWithinOnRange(sensor.getValue()) && sensor.getType().equals("doorlock")) {
+//			lock.setValue(true);
+//		}
+	}
 	
 	public void openDoor() {
 		this.lock.openLock();
 	}
 	
 	private boolean timeWithinOnRange(Object param) {
-		return endTime.isAfter((LocalDateTime) param) && startTime.isBefore((LocalDateTime) param);
+		return offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
 	}
 
 }
