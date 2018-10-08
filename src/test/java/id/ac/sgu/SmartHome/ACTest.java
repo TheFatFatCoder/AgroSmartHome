@@ -20,12 +20,16 @@ public class ACTest {
 		Time timeOn = new Time(9, 00, 00);
 		Time timeOff = new Time(10, 00, 00);
 		Aircond aircond = new Aircond(18, timeOn, timeOff);
-        AbstractSensor tempSensor = new TempSensor(); AbstractSensor clockSensor = new ClockSensor("9:30:00");
+		AbstractSensor clockSensor = new ClockSensor(); AbstractSensor tempSensor = new TempSensor(); 
+		
         clockSensor.addObserver(aircond); tempSensor.addObserver(aircond); 
-      
+        clockSensor.setValue("9:30:00");
         tempSensor.setValue(20.0);
         assertEquals(true, aircond.getState());
         tempSensor.setValue(17.00);
+        assertEquals(false, aircond.getState());
+        clockSensor.setValue("11:30:00");
+        tempSensor.setValue(21.0);
         assertEquals(false, aircond.getState());
 	}
 }

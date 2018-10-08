@@ -7,8 +7,8 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 public class ClockSensor extends AbstractSensor{
 	private Time timeNow;
 	
-	public ClockSensor(String time) {
-		setValue(time);
+	public ClockSensor() {
+		type = "clock";
 	}
 
 	@Override
