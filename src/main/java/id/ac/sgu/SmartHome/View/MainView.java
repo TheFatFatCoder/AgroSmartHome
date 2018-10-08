@@ -130,7 +130,8 @@ public class MainView extends StackPane {
 				}else {
 					controller.changeClockObject(newVal);
 				}
-			}catch(ArrayIndexOutOfBoundsException aiobe) {};
+			}catch(ArrayIndexOutOfBoundsException aiobe) {}
+			catch(NumberFormatException e) {};
 		});
 		openDoorButton.setOnAction(event -> {
 			controller.openDoor();
