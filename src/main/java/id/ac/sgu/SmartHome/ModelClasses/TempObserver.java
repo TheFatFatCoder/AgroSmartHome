@@ -3,6 +3,7 @@ package id.ac.sgu.SmartHome.ModelClasses;
 import java.util.Observable;
 import java.util.Observer;
 
+import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 
 public class TempObserver implements Observer{
@@ -19,4 +20,7 @@ public class TempObserver implements Observer{
 		tempSensor = (AbstractSensor) o;
 	}
 	
+	public double getTemp() {
+		return (double) tempSensor.getValue();
+	}
 }
