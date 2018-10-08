@@ -12,7 +12,7 @@ public class TempSensor extends AbstractSensor{
 	@Override
 	public void setValue(Object val) {
 		try {
-			value = Double.parseDouble((String) val);
+			value = Double.parseDouble(val.toString());
 			setChanged();
 			notifyObservers(value);
 		} catch(NumberFormatException e) {}

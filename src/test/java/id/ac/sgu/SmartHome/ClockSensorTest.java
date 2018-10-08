@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.time.Clock;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 import org.junit.Test;
@@ -15,7 +16,9 @@ public class ClockSensorTest {
 	@Test
 	public void test() {
 		Sensor clockSensor = new ClockSensor();
-		System.out.println(clockSensor.getValue().toString());
-		assertEquals("10:30:00", clockSensor.getValue().toString());
+		clockSensor.setValue("10:30:00");
+		LocalDateTime result = (LocalDateTime) clockSensor.getValue();
+		System.out.println(result.getHour());
+		assertEquals(10, result.getHour());
 	}
 }
