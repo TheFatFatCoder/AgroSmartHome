@@ -9,11 +9,8 @@ public class DateTimeConverter {
 	private LocalDateTime dateTime;
 	
 	private DateTimeConverter(String dateTimeStr) {
-		String[] hourAndMinute = dateTimeStr.split(":");
-		int hour = Integer.parseInt(hourAndMinute[0]);
-		int minute = Integer.parseInt(hourAndMinute[1]);
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
-		this.dateTime =  LocalTime.parse(hour+":"+minute, dateTimeFormatter).atDate(LocalDate.now());
+		this.dateTime =  LocalTime.parse(dateTimeStr, dateTimeFormatter).atDate(LocalDate.now());
 	}
 	
 	public static LocalDateTime convertTime(String dateTimeStr) {
