@@ -11,7 +11,8 @@ public class AlarmTest {
 
 	@Test
 	public void test() {
-		Alarm alarm = new Alarm();
+		
+		Alarm alarm = new Alarm(null, null, null);
 		alarm.doAction(true, null);
 		assertEquals(true, alarm.getState());
 	}

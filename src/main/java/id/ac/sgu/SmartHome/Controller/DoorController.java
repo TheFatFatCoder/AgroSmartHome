@@ -22,10 +22,10 @@ public class DoorController extends AbstractController implements Observer{
 	
 	public DoorController(Alarm alarm, ClockSensor clockSensor, DoorLock lock) {
 		this.alarm = alarm;
-		this.clockSensor = clockSensor;
-		this.lock = lock;
 		this.onTime = DateTimeConverter.convertTime("19:00:00");
 		this.offTime = DateTimeConverter.convertTime("05:00:00");
+		this.clockSensor = clockSensor;
+		this.lock = lock;
 	}
 
 	@Override
@@ -43,5 +43,4 @@ public class DoorController extends AbstractController implements Observer{
 	private boolean timeWithinOnRange(Object param) {
 		return offTime.isAfter((LocalDateTime) param) && onTime.isBefore((LocalDateTime) param);
 	}
-
 }

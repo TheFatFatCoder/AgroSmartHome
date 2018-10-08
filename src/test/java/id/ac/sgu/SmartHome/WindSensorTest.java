@@ -12,7 +12,7 @@ public class WindSensorTest {
 	@Test
 	public void test() {
 		Sensor sensor = new WindSensor();
-		sensor.setValue(1055.00); //1055 rpm
+		sensor.setValue(1055); //1055 rpm
 		assertEquals(1055, (double) sensor.getValue(), 0.1);
 	}
 
