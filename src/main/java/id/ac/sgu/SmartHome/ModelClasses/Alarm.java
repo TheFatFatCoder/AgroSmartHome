@@ -31,11 +31,19 @@ public class Alarm extends AbstractActuator implements Observer {
 	private LocalDateTime endTime;
 	private ClockSensor clockSensor;
 	
+	public Alarm() {
+		setDisarm();
+	}
+	
 	public Alarm(LocalDateTime startTime, LocalDateTime endTime, ClockSensor clockSensor) {
-		this.startTime = startTime;
-		this.endTime = endTime;
+		setTimes(startTime, endTime);
 		this.clockSensor = clockSensor;
 		setDisarm();
+	}
+	
+	public void setTimes(LocalDateTime startTime, LocalDateTime endTime) {
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 	
 	private void setArm() {
@@ -72,6 +80,5 @@ public class Alarm extends AbstractActuator implements Observer {
 	
 	private boolean isTrue(Object action) {
 		return (boolean)action==true;
-	}
-	
+	}	
 }
