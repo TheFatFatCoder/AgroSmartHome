@@ -18,8 +18,8 @@ public class ACTest {
         AbstractSensor tempSensor = new TempSensor();
         tempSensor.addObserver(aircond);
         tempSensor.setValue(20.0);
-        System.out.println(aircond.getState());
+        assertEquals(true, aircond.getState());
         tempSensor.setValue(17.00);
-        System.out.println(aircond.getState());
+        assertEquals(false, aircond.getState());
 	}
 }
