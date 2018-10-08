@@ -91,7 +91,7 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timerHasBeenSet() {
-		return onTime != null && offTime != null;
+		return onTime != null || offTime != null;
 	}
 
 	private boolean isTimeArg(String arg) {
