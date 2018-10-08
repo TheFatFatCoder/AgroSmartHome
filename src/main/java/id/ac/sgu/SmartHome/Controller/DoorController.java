@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Observer;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
@@ -39,7 +42,21 @@ public class DoorController extends AbstractController implements Observer{
 //		if(alarm.getArmed()) {
 //			
 //		}
-		System.out.println("door opened");
+		if((Boolean) alarm.getState()) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Information Dialog");
+			alert.setHeaderText("Look, an Information Dialog");
+			alert.setContentText("I have a great message for you!");
+
+			alert.showAndWait();
+		}
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText("Look, an Information Dialog");
+		alert.setContentText("I have a great message for you!");
+
+		alert.showAndWait();
 	}
 	
 	public void openDoor() {
