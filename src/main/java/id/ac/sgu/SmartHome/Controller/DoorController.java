@@ -31,19 +31,28 @@ public class DoorController extends AbstractController implements Observer{
 		this.clockSensor = clockSensor;
 		this.lock = lock;
 		clockSensor.addObserver(this.alarm);
+		this.alarm.addObserver(this);
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		if((Boolean) alarm.getState()) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Intruder Alert");
-			alert.setHeaderText("Alarm ringing");
-			alert.setContentText("RING RING ");
-			alert.showAndWait();
-			System.out.println("after this");
-		} else {
-			System.out.println("door opened");
+	public void update(Observable obj, Object arg1) {
+		if(obj instanceof DoorLock) {
+			if((Boolean) alarm.getState()) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Intruder Alert");
+				alert.setHeaderText("Alarm ringing");
+				alert.setContentText("RING RING ");
+				alert.showAndWait();
+				System.out.println("after this");
+			} else {
+				System.out.println("door opened");
+			}
+		} else if(obj instanceof Alarm) {
+			if((Boolean) alarm.getState()) {
+				view.turnOnAlarm(true);
+			} else {
+				view.turnOnAlarm(false);
+			}
 		}
 	}
 	

@@ -39,10 +39,8 @@ public class AircondController extends AbstractController implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		if((Boolean) aircond.getState()) {
 			view.turnOnAircon(true);
-//			System.out.println("ON");
 		} else {
 			view.turnOnAircon(false);
-//			System.out.println("OFF");
 		}
 	}
 	

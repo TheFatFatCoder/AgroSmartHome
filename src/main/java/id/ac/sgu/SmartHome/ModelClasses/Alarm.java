@@ -74,8 +74,12 @@ public class Alarm extends AbstractActuator implements Observer {
 	public void doAction(Object action, String arg) {
 		if	(isTrue(action)) {
 			setArm();
+			setChanged();
+			notifyObservers();
 		}else {
 			setDisarm();
+			setChanged();
+			notifyObservers();
 		}
 	}
 
@@ -92,12 +96,6 @@ public class Alarm extends AbstractActuator implements Observer {
 	
 	private boolean timeWithinOnRange(Object param) {
 		try {
-			if(startTime == null) {
-				System.out.println("start null yo");
-			}
-			if(endTime == null) {
-				System.out.println("end null yo");
-			}
 			boolean status = startTime.isBefore((LocalDateTime) param) && endTime.isAfter((LocalDateTime) param);
 			return status;
 		} catch(Exception e) {}
