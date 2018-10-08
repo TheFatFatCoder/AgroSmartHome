@@ -6,6 +6,7 @@ public class TempSensor extends AbstractSensor{
 
 	public TempSensor() {
 		super();
+		type = "temp";
 	}
 	
 	@Override
