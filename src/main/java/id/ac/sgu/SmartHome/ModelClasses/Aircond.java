@@ -78,6 +78,7 @@ public class Aircond extends AbstractActuator implements Observer{
 	}
 
 	private boolean timeWithinOnRange(Object param) {
+//		System.out.println("timeonrange" + (offTime.after((Time) param) && onTime.before((Time) param)));
 		return offTime.after((Time) param) && onTime.before((Time) param);
 	}
 
@@ -103,9 +104,8 @@ public class Aircond extends AbstractActuator implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		AbstractSensor sensor = (AbstractSensor) o;
-		if	(sensor.getType().equals("clock")) {
+		if	(sensor instanceof ClockSensor) {
 			this.lastTimePerceived = (Time) sensor.getValue();
 		}else if (sensor.getType().equals("temp")) {
 			this.lastTempPerceived = (double) sensor.getValue();

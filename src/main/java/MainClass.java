@@ -50,5 +50,9 @@ public class MainClass extends Application {
         primaryStage.setTitle("Agro Smart Home");
         primaryStage.setScene(scene);
         primaryStage.show();
+        
+        controller.changeTempObject(controller.getView().tempField.getText());
+        controller.changeWindObject(controller.getView().windField.getText());
+		controller.changeClockObject(controller.getView().clockField.getText());
 	}
 }

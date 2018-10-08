@@ -38,7 +38,6 @@ public class Alarm extends AbstractActuator{
 
 	@Override
 	public void doAction(Object action, String arg) {
-		// TODO Auto-generated method stub
 		if	(isTrue(action)) {
 			setArm();
 		}else {

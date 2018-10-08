@@ -26,9 +26,10 @@ public class MainView extends StackPane {
 	Text blindsStateText = new Text("-");
 	Text alarmStateText = new Text("-");
 	Text lightsStateText = new Text("-");
-	TextField tempField = new TextField("0");
-	TextField windField = new TextField("0");
-	TextField clockField = new TextField("00:00:00");
+	public TextField tempField = new TextField("0");
+	public TextField windField = new TextField("0");
+	public TextField clockField = new TextField("00:00:00");
+	Button openDoorButton = new Button("Open Door");
 	
 	public MainView(MainController controller) {
 		this.controller = controller;
@@ -93,8 +94,8 @@ public class MainView extends StackPane {
 		Label clockLabel = new Label("Clock");
 		clockField.setStyle("-fx-pref-width: 80px;");
 		clockBox.getChildren().addAll(clockLabel, clockField);
-		
-		inputsBox.getChildren().addAll(tempBox, windBox, clockBox);
+				
+		inputsBox.getChildren().addAll(tempBox, windBox, clockBox, openDoorButton);
 		
 		mainAndInput.getChildren().addAll(actorsMonitor, inputsBox);
 		VBox.setVgrow(actorsMonitor, Priority.ALWAYS);
@@ -114,7 +115,11 @@ public class MainView extends StackPane {
 		});
 		clockField.textProperty().addListener((observable, oldVal, newVal) -> {
 			controller.changeClockObject(newVal);
-		}); 
+		});
+		openDoorButton.setOnAction(event -> {
+			System.out.println("button pressed");
+			controller.openDoor();
+		});
 	}
 	
 	public void turnOnAircon(boolean state) {
