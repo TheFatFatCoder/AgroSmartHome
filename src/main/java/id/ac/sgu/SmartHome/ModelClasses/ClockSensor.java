@@ -16,6 +16,9 @@ public class ClockSensor extends AbstractSensor{
 	@Override
 	public void setValue(Object x) {
 		value = DateTimeConverter.convertTime(x.toString());
+		if	(((LocalDateTime) value).isBefore(LocalDateTime.now())) {
+			value = ((LocalDateTime) value).plusDays(1);
+		}
 		setChanged();
 		notifyObservers();
 	}

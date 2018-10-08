@@ -87,7 +87,7 @@ public class Alarm extends AbstractActuator implements Observer {
 		if	(timeWithinOnRange(sensorDt)) {
 			doAction(true, null);
 		}else {
-			System.out.println("Masuk kesini");
+			System.out.println("Masuk kesini: "+sensorDt);
 			doAction(false, null);
 		}
 	}
