@@ -20,22 +20,20 @@ public class DoorController extends AbstractController implements Observer{
 	private LocalDateTime onTime;
 	private LocalDateTime offTime;
 	
-	
 	public DoorController(Alarm alarm, ClockSensor clockSensor, DoorLock lock) {
 		this.alarm = alarm;
 		this.clockSensor = clockSensor;
 		this.lock = lock;
 		this.onTime = DateTimeConverter.convertTime("19:00:00");
 		this.offTime = DateTimeConverter.convertTime("05:00:00");
-		
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-//		AbstractSensor sensor = (AbstractSensor) arg0;
-//		if	(timeWithinOnRange(sensor.getValue()) && sensor.getType().equals("doorlock")) {
-//			lock.setValue(true);
-//		}
+		AbstractSensor sensor = (AbstractSensor) arg0;
+		if	(timeWithinOnRange(sensor.getValue()) && sensor.getType().equals("doorlock")) {
+			lock.setValue(true);
+		}
 	}
 	
 	public void openDoor() {
