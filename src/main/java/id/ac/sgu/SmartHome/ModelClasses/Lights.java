@@ -8,5 +8,4 @@ public class Lights extends AbstractActuator {
 	public void doAction(Object action, String arg) {
 		currState = (Boolean) action;
 	}
-
 }

@@ -13,21 +13,21 @@ import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Interfaces.Actuator;
 import id.ac.sgu.SmartHome.Interfaces.Sensor;
 
-public class Aircond extends AbstractActuator implements Observer{
+public class Airconds extends AbstractActuator implements Observer{
 	private int desiredTemp;
 	private double lastTempPerceived;
 	private LocalDateTime onTime;
 	private LocalDateTime offTime;
 	private LocalDateTime lastTimePerceived;
 	
-	public Aircond() {}
+	public Airconds() {}
 	
-	public Aircond(int desiredTemp) {
+	public Airconds(int desiredTemp) {
 		setDesiredTemp(desiredTemp);
 		setTime(null, null);
 	}
 	
-	public Aircond(int desiredTemp, LocalDateTime onTime, LocalDateTime offTime) {
+	public Airconds(int desiredTemp, LocalDateTime onTime, LocalDateTime offTime) {
 		setDesiredTemp(desiredTemp);
 		setTime(onTime, offTime);
 	}

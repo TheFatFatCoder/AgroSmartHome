@@ -13,7 +13,7 @@ import org.junit.Test;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 import id.ac.sgu.SmartHome.Interfaces.Actuator;
 import id.ac.sgu.SmartHome.Interfaces.Sensor;
-import id.ac.sgu.SmartHome.ModelClasses.Aircond;
+import id.ac.sgu.SmartHome.ModelClasses.Airconds;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 
@@ -26,7 +26,7 @@ public class ACTest {
 		LocalDateTime timeOn = LocalTime.parse(tOn, dateTimeFormatter).atDate(LocalDate.now()); 
 		LocalDateTime timeOff = LocalTime.parse(tOff, dateTimeFormatter).atDate(LocalDate.now()); 
 		
-		Aircond aircond = new Aircond(18, timeOn, timeOff);
+		Airconds aircond = new Airconds(18, timeOn, timeOff);
 		AbstractSensor clockSensor = new ClockSensor(); AbstractSensor tempSensor = new TempSensor(); 
         clockSensor.addObserver(aircond); tempSensor.addObserver(aircond); 
         clockSensor.setValue("20:30");

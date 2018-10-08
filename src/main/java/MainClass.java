@@ -4,8 +4,8 @@ import id.ac.sgu.SmartHome.Controller.BlindsController;
 import id.ac.sgu.SmartHome.Controller.DoorController;
 import id.ac.sgu.SmartHome.Controller.LightsController;
 import id.ac.sgu.SmartHome.Controller.MainController;
-import id.ac.sgu.SmartHome.ModelClasses.Aircond;
-import id.ac.sgu.SmartHome.ModelClasses.Alarm;
+import id.ac.sgu.SmartHome.ModelClasses.Airconds;
+import id.ac.sgu.SmartHome.ModelClasses.Alarms;
 import id.ac.sgu.SmartHome.ModelClasses.Blinds;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.DoorLockSensor;
@@ -42,14 +42,14 @@ public class MainClass extends Application {
 		controller.addController(lightsController);
 		controller.addSensor(clockSensor);
 		
-		Aircond aircond = new Aircond();
+		Airconds aircond = new Airconds();
 		TempSensor tempSensor = new TempSensor();
 		AircondController aircondController = new AircondController(aircond, tempSensor, clockSensor);
 		// aircondController.getAircond().addObserver(aircondController);
 		controller.addController(aircondController);
 		controller.addSensor(tempSensor);
 		
-		Alarm alarm = new Alarm();
+		Alarms alarm = new Alarms();
 		DoorLockSensor doorLock = new DoorLockSensor(alarm);
 		DoorController doorController = new DoorController(alarm, clockSensor, doorLock);
 		doorLock.addObserver(doorController);

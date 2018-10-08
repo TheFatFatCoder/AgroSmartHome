@@ -10,20 +10,20 @@ import javafx.scene.control.Alert.AlertType;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
-import id.ac.sgu.SmartHome.ModelClasses.Alarm;
+import id.ac.sgu.SmartHome.ModelClasses.Alarms;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.DoorLockSensor;
 import id.ac.sgu.SmartHome.Util.DateTimeConverter;
 
 public class DoorController extends AbstractController implements Observer{
 	
-	private Alarm alarm;
+	private Alarms alarm;
 	private ClockSensor clockSensor;
 	private DoorLockSensor lock;
 	private LocalDateTime onTime;
 	private LocalDateTime offTime;
 	
-	public DoorController(Alarm alarm, ClockSensor clockSensor, DoorLockSensor lock) {
+	public DoorController(Alarms alarm, ClockSensor clockSensor, DoorLockSensor lock) {
 		this.alarm = alarm;
 		this.onTime = DateTimeConverter.convertTime("19:00:00");
 		this.offTime = DateTimeConverter.convertTime("05:00:00");
@@ -47,7 +47,7 @@ public class DoorController extends AbstractController implements Observer{
 			} else {
 				System.out.println("door opened");
 			}
-		} else if(obj instanceof Alarm) {
+		} else if(obj instanceof Alarms) {
 			if((Boolean) alarm.getState()) {
 				view.turnOnAlarm(true);
 			} else {

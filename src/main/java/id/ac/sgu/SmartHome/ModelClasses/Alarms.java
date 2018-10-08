@@ -26,16 +26,16 @@ import java.net.*;
 
 import id.ac.sgu.SmartHome.*;
 
-public class Alarm extends AbstractActuator implements Observer {
+public class Alarms extends AbstractActuator implements Observer {
 	private LocalDateTime startTime;
 	private LocalDateTime endTime;
 	private boolean isRing;
 	
-	public Alarm() {
+	public Alarms() {
 		setDisarm();
 	}
 	
-	public Alarm(LocalDateTime startTime, LocalDateTime endTime) {
+	public Alarms(LocalDateTime startTime, LocalDateTime endTime) {
 		setTimes(startTime, endTime);
 		setDisarm();
 	}

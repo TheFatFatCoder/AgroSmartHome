@@ -3,9 +3,9 @@ package id.ac.sgu.SmartHome.ModelClasses;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractSensor;
 
 public class DoorLockSensor extends AbstractSensor{
-	private Alarm alarm;
+	private Alarms alarm;
 	
-	public DoorLockSensor(Alarm alarm) {
+	public DoorLockSensor(Alarms alarm) {
 		this.alarm = alarm;
 		type="doorlock";
 	}

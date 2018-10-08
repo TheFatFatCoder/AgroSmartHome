@@ -7,21 +7,21 @@ import java.util.Observer;
 
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractActuator;
 import id.ac.sgu.SmartHome.AbstractClasses.AbstractController;
-import id.ac.sgu.SmartHome.ModelClasses.Aircond;
+import id.ac.sgu.SmartHome.ModelClasses.Airconds;
 import id.ac.sgu.SmartHome.ModelClasses.ClockSensor;
 import id.ac.sgu.SmartHome.ModelClasses.TempSensor;
 import id.ac.sgu.SmartHome.Util.DateTimeConverter;
 
 public class AircondController extends AbstractController implements Observer {
 	
-	private Aircond aircond;
+	private Airconds aircond;
 	private TempSensor tempSensor;
 	private ClockSensor clockSensor;
 	private LocalDateTime onTime;
 	private LocalDateTime offTime;
 	private int desiredTemp;
 	
-	public AircondController(Aircond aircond, TempSensor tempSensor, ClockSensor clockSensor) {
+	public AircondController(Airconds aircond, TempSensor tempSensor, ClockSensor clockSensor) {
 		this.aircond = aircond;
 		this.tempSensor = tempSensor;
 		this.clockSensor = clockSensor;
@@ -44,7 +44,7 @@ public class AircondController extends AbstractController implements Observer {
 		}
 	}
 	
-	public Aircond getAircond() {
+	public Airconds getAircond() {
 		return this.aircond;
 	}
 }
