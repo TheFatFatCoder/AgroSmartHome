@@ -1,8 +1,8 @@
-import controller.MainController;
+import id.ac.sgu.SmartHome.Controller.MainController;
+import id.ac.sgu.SmartHome.View.MainView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.MainView;
 
 public class MainClass extends Application {
 	public static void main(String[] args) {

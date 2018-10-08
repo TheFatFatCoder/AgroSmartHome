@@ -1,6 +1,6 @@
-package controller;
+package id.ac.sgu.SmartHome.Controller;
 
-import view.MainView;
+import id.ac.sgu.SmartHome.View.MainView;
 
 public class MainController {
 	

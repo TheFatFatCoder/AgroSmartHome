@@ -1,6 +1,6 @@
-package view;
+package id.ac.sgu.SmartHome.View;
 
-import controller.MainController;
+import id.ac.sgu.SmartHome.Controller.MainController;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
